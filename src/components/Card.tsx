@@ -1,7 +1,6 @@
 
 import { ReactElement } from 'react'
 import StyledCard from './styles/Card.styled'
-import StyledCardDescription from './styles/CardDescription.styled'
 import Collapsible from 'react-collapsible'
 
 type CardPropsType = {
@@ -28,9 +27,6 @@ export function Card({ item }: CardPropsType) {
                     <img src={item.image.original} alt={`Image poster of ${item.name}`} />
                 </div>
                 <OtherNames item={item} />
-                <StyledCardDescription>
-                    <p>{item.description}</p>
-                </StyledCardDescription>
                 <Collapsible trigger="Descrição +">
                     <p>{item.description}</p>
                 </Collapsible>

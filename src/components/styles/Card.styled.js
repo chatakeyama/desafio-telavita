@@ -6,15 +6,11 @@ const StyledCard = styled.article`
     border: 1px black solid;
     padding: 1.8rem;
     margin: 2rem;
+    align-self: flex-start;
+    min-height: 39rem;
     
     @media(max-width: ${({ theme }) => theme.sm}){
         margin: 2rem 0;
-    }
-
-    @media(width >= ${({ theme }) => theme.md}){
-        .Collapsible{
-            display: none;
-        }
     }
 
     .Collapsible__trigger {
