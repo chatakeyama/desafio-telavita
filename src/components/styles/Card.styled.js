@@ -2,12 +2,12 @@
 import styled from 'styled-components'
 
 const StyledCard = styled.article`
-    width: 30rem;
+    width: 25rem;
     border: 1px black solid;
     padding: 1.8rem;
     margin: 2rem;
     align-self: flex-start;
-    min-height: 39rem;
+    min-height: 30rem;
     
     @media(max-width: ${({ theme }) => theme.sm}){
         margin: 2rem 0;
@@ -33,8 +33,8 @@ const StyledCard = styled.article`
         display: flex;
         justify-content: center;
         width: 100%;
-        max-width: 15rem;
-        margin-bottom: 2rem;
+        max-width: 12rem;
+        margin-bottom: 1.2rem;
     }
 `
 

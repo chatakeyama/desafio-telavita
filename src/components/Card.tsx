@@ -2,6 +2,7 @@
 import { ReactElement } from 'react'
 import StyledCard from './styles/Card.styled'
 import Collapsible from 'react-collapsible'
+import { ReadMore } from './ReadMore'
 
 type CardPropsType = {
     [x: string]: any
@@ -11,12 +12,15 @@ type CardPropsType = {
 export function Card({ item }: CardPropsType) {
 
     const OtherNames = ({ item }: any): ReactElement => {
+        let text = ''
+        const otherNamesStyle = { marginBottom: '1.5rem', fontSize: '14px' } as React.CSSProperties
         if (item.otherNames.length > 0) {
             const otherNames = item.otherNames.map((otherName: string) => otherName.trim()).join()
-            const otherNamesStyle = { marginBottom: '1.5rem', textAlign: 'center' } as React.CSSProperties
-            return <p style={otherNamesStyle}><strong>({otherNames})</strong></p>
+            text = otherNames
+        } else {
+            text = 'Não tem'
         }
-        return <></>
+        return <><p style={otherNamesStyle}>{text}</p></>
     }
 
     return (
@@ -26,11 +30,12 @@ export function Card({ item }: CardPropsType) {
                 <div className='imageContainer'>
                     <img src={item.image.original} alt={`Image poster of ${item.name}`} />
                 </div>
-                <OtherNames item={item} />
-                <Collapsible trigger="Descrição +">
-                    <p>{item.description}</p>
-                </Collapsible>
+                Outros nomes: <p><OtherNames item={item} /></p>
+                <ReadMore>
+                    {item.description}
+                </ReadMore>
             </StyledCard>
+
         </>
     )
 
