@@ -4,6 +4,8 @@ import GlobalStyles from './components/styles/Global'
 import Container from './components/styles/Container.styled';
 import CardsArea from './components/styles/CardsArea.styled';
 import { Header } from './components/Header';
+import getAllCharacters from './services/HttpService'
+import { useEffect, useState } from 'react';
 
 function App() {
 
@@ -11,6 +13,17 @@ function App() {
     mobile: '576px',
     tablet: '768px'
   }
+
+  const [data, setData] = useState<any>(null)
+
+  useEffect(() => {
+    getAllCharacters().then(
+      data => {
+        setData(data.data)
+      }
+    )
+
+  }, [])
 
   return (
     <>
@@ -20,9 +33,9 @@ function App() {
           <Header />
           <main>
             <CardsArea>
-              {[1, 2, 3, 4].map(() =>
-                <Card />
-              )}
+              { data?.map((item: any) =>
+                <Card key={item.id} item={item.attributes}  />
+              )} 
             </CardsArea>
           </main>
         </Container>

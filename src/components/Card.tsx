@@ -1,21 +1,32 @@
 
+import { ReactElement } from "react"
 import StyledCard from "./styles/Card.styled"
 
-export function Card() {
+type CardPropsType = {
+    [x: string]: any
+    item: any
+}
+
+export function Card({ item }: CardPropsType) {
+
+    const OtherNames = ({ item }: any): ReactElement => {
+        if (item.otherNames.length > 0) {
+            const otherNames = item.otherNames.map((otherName: string) => otherName.trim()).join()
+            const otherNamesStyle = { marginBottom: '1.5rem', textAlign: 'center' } as React.CSSProperties
+            return <p style={otherNamesStyle}><strong>({otherNames})</strong></p>
+        }
+        return <></>
+    }
 
     return (
         <>
             <StyledCard>
-                <h3>Witch Hunter Robin</h3>
+                <h3>{item.name}</h3>
                 <div>
-                    <img src="https://media.kitsu.io/anime/poster_images/4/small.jpg" alt="" />
+                    <img src={item.image.original} alt={`Image poster of ${item.name}`} />
                 </div>
-                <p>"Witches are individuals with special powers like ESP, telekinesis, mind control, etc.
-                    (not the typical hogwart and newt potions). Robin, a 15-year-old craft user, arrives from Italy to
-                    Japan to work for an organization named STN Japan Division (STN-J) as a replacement for one of
-                    STN-J's witch hunters who was recently killed. Unlike other divisions of STN, STN-J tries to
-                    capture the witches alive in order to learn why and how they became witches in the first place.
-                    (Source: ANN)"</p>
+                <OtherNames item={item} />
+                <p>{item.description}</p>
             </StyledCard>
         </>
     )
