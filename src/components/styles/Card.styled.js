@@ -2,16 +2,28 @@
 import styled from 'styled-components'
 
 const StyledCard = styled.article`
-    width: 35rem;
+    width: 30rem;
     border: 1px black solid;
     padding: 1.8rem;
     margin: 2rem;
-
-    @media(max-width: ${({ theme }) => theme.mobile}){
+    
+    @media(max-width: ${({ theme }) => theme.sm}){
         margin: 2rem 0;
     }
 
-    div {
+    @media(width >= ${({ theme }) => theme.md}){
+        .Collapsible{
+            display: none;
+        }
+    }
+
+    .Collapsible__trigger {
+        padding:  1rem 0;
+        display: block;
+        position: relative;
+    }
+    
+    .imageContainer {
         display: flex;
         justify-content: center;
     }
@@ -25,7 +37,7 @@ const StyledCard = styled.article`
         display: flex;
         justify-content: center;
         width: 100%;
-        max-width: 20rem;
+        max-width: 15rem;
         margin-bottom: 2rem;
     }
 `

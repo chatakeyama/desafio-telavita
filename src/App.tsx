@@ -10,8 +10,8 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const theme = {
-    mobile: '576px',
-    tablet: '768px'
+    sm: '576px',
+    md: '1209px'
   }
 
   const [data, setData] = useState<any>(null)
