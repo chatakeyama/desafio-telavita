@@ -1,3 +1,6 @@
+import { Button } from "./Button"
+import StyledPagination from "./styles/Pagination.styled"
+import { BsChevronBarLeft, BsChevronLeft, BsChevronRight, BsChevronBarRight } from "react-icons/bs";
 
 export interface IPagination {
     first: string,
@@ -13,25 +16,26 @@ type PaginationProps = {
 
 export function Pagination({ paginationLinks, onPageChange }: PaginationProps) {
 
-    const buttonDisplayText = {
-        'first': 'Primeiro',
-        'prev': 'Anterior',
-        'next': 'Próximo',
-        'last': 'Último',
+    const buttonProperties = {
+        'first': <><BsChevronBarLeft />{' Primeiro'}</>,
+        'prev': <><BsChevronLeft />{' Anterior'}</>,
+        'next': <>{'Próximo '}<BsChevronRight /></>,
+        'last': <>{'Último '}<BsChevronBarRight /></>
     }
 
     return (
         <>
-            {
-                paginationLinks &&
-                Object.entries(paginationLinks).map(([linkType, link]) => {
-                    return <button key={linkType} onClick={() => onPageChange(link)}>
-                        {buttonDisplayText[linkType as keyof typeof buttonDisplayText]}
-                    </button>
-                })}
-
+            <StyledPagination>
+                {
+                    paginationLinks &&
+                    Object.entries(paginationLinks).map(([linkType, link]) => {
+                        return (
+                            <Button key={linkType} onClick={() => onPageChange(link)}>
+                                {buttonProperties[linkType as keyof typeof buttonProperties]}
+                            </Button>)
+                    })}
+            </StyledPagination>
         </>
     )
-
 
 }
