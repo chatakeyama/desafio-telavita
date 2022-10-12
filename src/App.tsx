@@ -1,11 +1,10 @@
 import { ThemeProvider } from 'styled-components'
-import { Card } from './components/Card';
 import GlobalStyles from './components/styles/Global'
 import Container from './components/styles/Container.styled';
-import CardsArea from './components/styles/CardsArea.styled';
 import { Header } from './components/Header';
 import getAllCharacters from './services/HttpService'
 import { useEffect, useState } from 'react';
+import { CardList } from './components/CardList';
 
 function App() {
 
@@ -14,12 +13,12 @@ function App() {
     md: '1209px'
   }
 
-  const [data, setData] = useState<any>(null)
+  const [characters, setCharacters] = useState<any>(null)
 
   useEffect(() => {
     getAllCharacters().then(
       data => {
-        setData(data.data)
+        setCharacters(data.data)
       }
     )
 
@@ -32,11 +31,7 @@ function App() {
         <Container>
           <Header />
           <main>
-            <CardsArea>
-              { data?.map((item: any) =>
-                <Card key={item.id} item={item.attributes}  />
-              )} 
-            </CardsArea>
+            <CardList characters={characters}/>
           </main>
         </Container>
       </ThemeProvider>
