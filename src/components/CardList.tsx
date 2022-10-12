@@ -1,7 +1,17 @@
 import { Card } from "./Card";
 import StyledCardList from "./styles/CardList.styled";
 
-export function CardList({characters}: any) {
+type CardListProps = {
+    characters: any
+    loading: boolean
+}
+
+export function CardList({ characters, loading }: CardListProps) {
+
+    if (loading) {
+        return <p>loading...</p>
+    }
+
     return (
         <>
             <StyledCardList>

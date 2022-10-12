@@ -3,10 +3,10 @@ import config from '../config.json'
 
 const apiEndpoint = config.apiUrl
 
-const getAllCharacters = async (): Promise<any> => {
-    const promise = axios.get(`${apiEndpoint}/characters`)
+const getCharactersFromServer = async (apiUrl: string | undefined): Promise<any> => {
+    const promise = axios.get(apiUrl || `${apiEndpoint}/characters?page[limit]=4&page[offset]=0`)
     const { data } = await promise
     return data
 }
 
-export default getAllCharacters
+export default getCharactersFromServer
