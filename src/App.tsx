@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     setLoading(true)
+    setPaginationLinks(undefined)
     getCharactersFromServer(currentPaginationLink).then(
       response => {
         setLoading(false)
