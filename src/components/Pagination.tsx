@@ -17,10 +17,10 @@ type PaginationProps = {
 export function Pagination({ paginationLinks, onPageChange }: PaginationProps) {
 
     const buttonProperties = {
-        'first': <><BsChevronBarLeft />{' Primeiro'}</>,
-        'prev': <><BsChevronLeft />{' Anterior'}</>,
-        'next': <>{'Próximo '}<BsChevronRight /></>,
-        'last': <>{'Último '}<BsChevronBarRight /></>
+        'first': <><BsChevronBarLeft /><span className='btn-text'>{' Primeiro'}</span></>,
+        'prev': <><BsChevronLeft /><span className='btn-text'>{' Anterior'}</span></>,
+        'next': <><span className='btn-text'>{'Próximo '}</span><BsChevronRight /></>,
+        'last': <><span className='btn-text'>{'Último '}</span><BsChevronBarRight /></>
     }
 
     return (
