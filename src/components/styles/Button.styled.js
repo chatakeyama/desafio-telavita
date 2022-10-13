@@ -10,6 +10,10 @@ const StyledButton = styled.div`
             background-color: #f2f2f2;
             cursor: pointer;
         }
+        svg { 
+            position: relative;
+            top: 0.13rem;
+        }
     }`
 
 export default StyledButton
