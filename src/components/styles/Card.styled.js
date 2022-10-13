@@ -39,6 +39,7 @@ const StyledCard = styled.article`
         justify-content: center;
         max-width: 100%;
         margin-bottom: 1.2rem;
+        object-fit: cover;
     }
 `
 
