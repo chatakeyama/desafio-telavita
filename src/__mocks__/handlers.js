@@ -2,9 +2,9 @@ import { rest } from 'msw'
 import config from '../config.json'
 
 const apiEndpoint = config.apiUrl
-
+//?page[limit]=4&page[offset]=0
 export const handlers = [
-  rest.get(`${apiEndpoint}?page[limit]=4&page[offset]=0`, (req, res, ctx) => {
+  rest.get(`${apiEndpoint}`, (req, res, ctx) => {
 
     res(
       ctx.status(200),
@@ -22,8 +22,8 @@ export const handlers = [
       })
     )
   }),
-
-  rest.get(`${apiEndpoint}?page%5Blimit%5D=4&page%5Boffset%5D=4`, (req, res, ctx) => {
+//?page%5Blimit%5D=4&page%5Boffset%5D=4
+  rest.get(`${apiEndpoint}`, (req, res, ctx) => {
 
     res(
       ctx.status(200),
