@@ -7,7 +7,7 @@ const StyledCard = styled.article`
     padding: 1.8rem;
     margin: 2rem;
     align-self: flex-start;
-    min-height: 30rem;
+    min-height: 39rem;
     
     @media(max-width: ${({ theme }) => theme.sm}){
         margin: 2rem 0;
@@ -18,10 +18,15 @@ const StyledCard = styled.article`
         display: block;
         position: relative;
     }
+
+    .other-names {
+        margin-bottom: 1.2rem;
+    }
     
     .imageContainer {
         display: flex;
         justify-content: center;
+        height: 20rem;
     }
 
     h3 {
@@ -32,8 +37,7 @@ const StyledCard = styled.article`
     img {
         display: flex;
         justify-content: center;
-        width: 100%;
-        max-width: 12rem;
+        max-width: 100%;
         margin-bottom: 1.2rem;
     }
 `

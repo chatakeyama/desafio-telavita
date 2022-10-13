@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyledReadMore = styled.div`
+const StyledReadMore = styled.span`
     display: inline;
     span {
         cursor: pointer;

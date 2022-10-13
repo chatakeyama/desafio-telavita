@@ -11,16 +11,11 @@ type CardPropsType = {
 
 export function Card({ item }: CardPropsType) {
 
-    const OtherNames = ({ item }: any): ReactElement => {
-        let text = ''
-        const otherNamesStyle = { marginBottom: '1.5rem', fontSize: '14px' } as React.CSSProperties
+    const otherNames = (item: any): string => {
         if (item.otherNames.length > 0) {
-            const otherNames = item.otherNames.map((otherName: string) => otherName.trim()).join()
-            text = otherNames
-        } else {
-            text = 'Não tem'
+            return item.otherNames.map((otherName: string) => ` ${otherName.trim()}`).join()
         }
-        return <><p style={otherNamesStyle}>{text}</p></>
+        return 'Não tem'
     }
 
     return (
@@ -30,12 +25,15 @@ export function Card({ item }: CardPropsType) {
                 <div className='imageContainer'>
                     <img src={item.image.original} alt={`Image poster of ${item.name}`} />
                 </div>
-                Outros nomes: <p><OtherNames item={item} /></p>
-                <ReadMore>
+                <div className='other-names'>
+                    Outros nomes:
+                    <ReadMore limit={30}>{otherNames(item)}</ReadMore>
+                </div>
+                Descrição:
+                <ReadMore limit={110}>
                     {item.description}
                 </ReadMore>
             </StyledCard>
-
         </>
     )
 
