@@ -18,6 +18,7 @@ function App() {
   const [loading, setLoading] = useState<boolean>(true)
   const [currentPaginationLink, setCurrentPaginationLink] = useState<string>()
   const [paginationLinks, setPaginationLinks] = useState<IPagination>()
+  const [serverError, setServerError] = useState(false)
 
   useEffect(() => {
     setLoading(true)
@@ -25,11 +26,14 @@ function App() {
     getCharactersFromServer(currentPaginationLink).then(
       response => {
         setLoading(false)
+        setServerError(false)
         setCharacters(response.data)
         setPaginationLinks(response.links)
       }
-    )
-
+    ).catch(error => {
+      setLoading(false)
+      setServerError(true)
+    })
   }, [currentPaginationLink])
 
   const handlePageChange = (link: string) => {
@@ -43,6 +47,7 @@ function App() {
         <Container>
           <Header />
           <main>
+            {serverError && (<p>Falha ao conectar no servidor. Tente novamente mais tarde.</p>)}
             <CardList characters={characters} loading={loading} />
             <Pagination paginationLinks={paginationLinks} onPageChange={handlePageChange} />
           </main>
