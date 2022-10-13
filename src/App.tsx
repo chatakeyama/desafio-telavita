@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styles/Global'
 import Container from './components/styles/Container.styled';
 import { Header } from './components/Header';
-import getCharactersFromServer from './services/HttpService'
-import { useEffect, useState } from 'react';
 import { CardList } from './components/CardList';
 import { IPagination, Pagination } from './components/Pagination';
+import getCharactersFromServer from './services/HttpService'
 
 function App() {
 
