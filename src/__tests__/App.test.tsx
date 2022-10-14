@@ -24,10 +24,15 @@ test('show message error when getting error from server', async () => {
       toHaveTextContent('Falha ao conectar no servidor. Tente novamente mais tarde.')
 })
 
-test('show 4 cards when access the aplication (not using mock server)', async () => {
-   server.close()
+test('show cards when accessing the application', async () => {
    render(<App />)
    await waitFor(() => screen.getAllByRole('article'))
    const cards = await screen.findAllByRole('article')
-   expect(cards).toHaveLength(4)
+   expect(cards.length).toBeGreaterThanOrEqual(1)
+}) 
+
+test('show pagination', async () => {
+   render(<App />)
+   const pagination = await screen.findByRole('navigation')
+   expect(pagination)
 }) 

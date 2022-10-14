@@ -11,7 +11,7 @@ export const handlers = [
       ctx.json({
         "data": [
           {
-            "id": "5",
+            "id": "1",
             "attributes": {
               "otherNames": [],
               "name": "Ein",
@@ -20,7 +20,7 @@ export const handlers = [
             }
           },
           {
-            "id": "7",
+            "id": "2",
             "attributes": {
               "otherNames": ["Ju"],
               "name": "Julia",
@@ -29,7 +29,7 @@ export const handlers = [
             }
           },
           {
-            "id": "7",
+            "id": "3",
             "attributes": {
               "otherNames": ["Ju"],
               "name": "Julia",
@@ -38,7 +38,7 @@ export const handlers = [
             }
           },
           {
-            "id": "7",
+            "id": "4",
             "attributes": {
               "otherNames": ["Ju"],
               "name": "Julia",
@@ -46,16 +46,12 @@ export const handlers = [
               "image": { "original": "" }
             }
           },
-          {
-            "id": "7",
-            "attributes": {
-              "otherNames": ["Ju"],
-              "name": "Julia",
-              "description": "Julia is a beautiful and mysterious woman from both Spike and Vicious' pasts.",
-              "image": { "original": "" }
-            }
-          }
-        ]
+        ],
+        "links": {
+          "first": "https://kitsu.io/api/edge/characters?page%5Blimit%5D=4&page%5Boffset%5D=0",
+          "next": "https://kitsu.io/api/edge/characters?page%5Blimit%5D=4&page%5Boffset%5D=4",
+          "last": "https://kitsu.io/api/edge/characters?page%5Blimit%5D=4&page%5Boffset%5D=105796"
+        }
       })
     )
   })
