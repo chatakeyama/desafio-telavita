@@ -10,10 +10,8 @@ type ButtonProps = {
 export function Button({ children, onClick }: ButtonProps) {
 
     return (
-        <StyledButton>
-            <button onClick={onClick}>
-                {children}
-            </button>
+        <StyledButton onClick={onClick}>
+            {children}
         </StyledButton>
     )
 
