@@ -1,7 +1,4 @@
-
-import { ReactElement } from 'react'
 import StyledCard from './styles/Card.styled'
-import Collapsible from 'react-collapsible'
 import { ReadMore } from './ReadMore'
 
 type CardPropsType = {
@@ -12,10 +9,7 @@ type CardPropsType = {
 export function Card({ item }: CardPropsType) {
 
     const otherNames = (item: any): string => {
-        if (item.otherNames.length > 0) {
-            return item.otherNames.map((otherName: string) => ` ${otherName.trim()}`).join()
-        }
-        return 'Não tem'
+        return item.otherNames.map((otherName: string) => ` ${otherName.trim()}`).join()
     }
 
     return (
@@ -23,13 +17,15 @@ export function Card({ item }: CardPropsType) {
             <StyledCard>
                 <h3>{item.name}</h3>
                 <div className='imageContainer'>
-                    <img src={item.image.original} alt={`Image poster of ${item.name}`} />
+                    <img src={item.image.original} alt={`Poster of ${item.name}`} />
                 </div>
                 <div className='other-names'>
                     Outros nomes:
+                    {item.otherNames.length === 0 && (<p>Não tem</p>)}
                     <ReadMore limit={30}>{otherNames(item)}</ReadMore>
                 </div>
                 Descrição:
+                {!item.description && (<p>Não tem</p>)}
                 <ReadMore limit={110}>
                     {item.description}
                 </ReadMore>
