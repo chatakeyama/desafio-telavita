@@ -23,11 +23,9 @@ export function ReadMore({ children, limit }: ReadMoreProps) {
             {(isReadMore && isTextBiggerThan(limit)) ? text.slice(0, limit) : text}
             {
                isTextBiggerThan(limit) &&
-               <StyledReadMore>
-                  <span onClick={toggleReadMore} role="button">
-                     {(isReadMore && isTextBiggerThan(limit)) ? "...Leia mais" : " "}
-                     {(!isReadMore && isTextBiggerThan(limit)) ? "Mostrar Menos" : ""}
-                  </span>
+               <StyledReadMore onClick={toggleReadMore}>
+                  {(isReadMore && isTextBiggerThan(limit)) ? "...Leia mais" : " "}
+                  {(!isReadMore && isTextBiggerThan(limit)) ? "Mostrar Menos" : ""}
                </StyledReadMore>
             }
          </p>

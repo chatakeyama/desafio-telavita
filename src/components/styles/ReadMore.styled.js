@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-const StyledReadMore = styled.span`
+const StyledReadMore = styled.span.attrs({
+    role: 'button'
+})`
     display: inline;
-    span {
-        cursor: pointer;
-        font-weight: bold;
-    }
+    cursor: pointer;
+    font-weight: bold;
 `
 
 export default StyledReadMore
