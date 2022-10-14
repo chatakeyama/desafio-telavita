@@ -12,8 +12,10 @@ export default {
       description: 'Conteúdo do botão.',
       table: {
         type: { summary: 'ReactNode' },
-        defaultValue: { summary: '' },
       },
+      control: {
+        type: null,
+      }
     },
   },
 } as ComponentMeta<typeof Button>;
