@@ -17,6 +17,9 @@ export default {
         type: null,
       }
     },
+    onClick: {
+      description: 'Função a ser executada ao clicar no botão.',
+    }
   },
 } as ComponentMeta<typeof Button>;
 
