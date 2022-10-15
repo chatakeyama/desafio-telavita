@@ -2,15 +2,26 @@
 import styled from 'styled-components'
 
 const StyledCard = styled.article`
-    width: 25rem;
+    width: 29rem;
     border: 1px black solid;
     padding: 1.8rem;
     margin: 2rem;
     align-self: flex-start;
     min-height: 39rem;
     
-    @media(max-width: ${({ theme }) => theme.sm}){
+    @media(max-width: ${({ theme }) => theme.lg}){
+        width: 24rem;
+        margin: 1.9rem;
+    }
+    @media(max-width: ${({ theme }) => theme.md}){
+        width: 100%;
         margin: 2rem 0;
+    }
+    @media(max-width: ${({ theme }) => theme.sm}){
+        width: 100%;
+    }
+    @media(max-width: ${({ theme }) => theme.xs}){
+        width: 100%;
     }
 
     .Collapsible__trigger {

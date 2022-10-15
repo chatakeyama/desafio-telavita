@@ -11,8 +11,10 @@ import { ICharacter } from './interfaces/IHttpResponse.interface';
 function App() {
 
   const theme = {
-    sm: '576px',
-    md: '1209px'
+    xs: '576px',
+    sm: '768px',
+    md: '992px',
+    lg: '1200px'
   }
 
   const [characters, setCharacters] = useState<ICharacter[]>()

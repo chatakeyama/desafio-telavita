@@ -10,7 +10,7 @@ const StyledPagination = styled.nav.attrs({
     .buttons {
         display: flex;
         justify-content: center;
-        padding: 2rem;
+        padding: 2rem 0;
     }
 
     .btn-text { 
