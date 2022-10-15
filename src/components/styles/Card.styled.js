@@ -7,7 +7,7 @@ const StyledCard = styled.article`
     padding: 1.8rem;
     margin: 2rem;
     align-self: flex-start;
-    min-height: 39rem;
+    min-height: 41rem;
     
     @media(max-width: ${({ theme }) => theme.lg}){
         width: 24rem;
