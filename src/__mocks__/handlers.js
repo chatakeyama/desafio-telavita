@@ -2,10 +2,10 @@ import { rest } from 'msw'
 import config from '../config.json'
 
 const apiEndpoint = config.apiUrl
-//?page[limit]=4&page[offset]=0
-export const handlers = [
-  rest.get(`${apiEndpoint}`, (req, res, ctx) => {
 
+export const handlers = [
+
+  rest.get(`${apiEndpoint}`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
