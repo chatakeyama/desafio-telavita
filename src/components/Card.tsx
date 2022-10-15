@@ -1,33 +1,35 @@
 import StyledCard from './styles/Card.styled'
 import { ReadMore } from './ReadMore'
+import { IAttributes } from '../interfaces/IHttpResponse.interface'
 
 type CardPropsType = {
-    [x: string]: any
-    item: any
+    attributes: IAttributes
 }
 
-export function Card({ item }: CardPropsType) {
+export function Card({ attributes }: CardPropsType) {
 
-    const otherNames = (item: any): string => {
-        return item.otherNames.map((otherName: string) => ` ${otherName.trim()}`).join()
+    const { name, image, otherNames, description } = attributes
+
+    const convertOtherNamesListToString = (otherNames: string[]): string => {
+        return otherNames.map((otherName: string) => ` ${otherName.trim()}`).join()
     }
 
     return (
         <>
             <StyledCard>
-                <h3>{item.name}</h3>
+                <h3>{name}</h3>
                 <div className='imageContainer'>
-                    <img src={item.image.original} alt={`Poster of ${item.name}`} />
+                    <img src={image.original} alt={`Poster of ${name}`} />
                 </div>
                 <div className='other-names'>
                     Outros nomes:
-                    {item.otherNames.length === 0 && (<p>Não tem</p>)}
-                    <ReadMore limit={30}>{otherNames(item)}</ReadMore>
+                    {otherNames.length === 0 && (<p>Não tem</p>)}
+                    <ReadMore limit={30}>{convertOtherNamesListToString(otherNames)}</ReadMore>
                 </div>
                 Descrição:
-                {!item.description && (<p>Não tem</p>)}
+                {!description && (<p>Não tem</p>)}
                 <ReadMore limit={110}>
-                    {item.description}
+                    {description}
                 </ReadMore>
             </StyledCard>
         </>

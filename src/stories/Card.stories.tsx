@@ -5,7 +5,7 @@ export default {
   title: 'AnimaVita/Card',
   component: Card,
   argTypes: {
-    item:{
+    item: {
       description: 'Objeto com as propriedades otherNames, name, description e image.'
     }
   },
@@ -15,7 +15,7 @@ const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  item: {
+  attributes: {
     "otherNames": ["Running Rock", "Black Dog"],
     "name": "Jet Black",
     "description": `Jet, known on his home satellite as the "Black Dog" for his tenacity, 

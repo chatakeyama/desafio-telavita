@@ -1,8 +1,9 @@
+import { ICharacter } from "../interfaces/IHttpResponse.interface";
 import { Card } from "./Card";
 import StyledCardList from "./styles/CardList.styled";
 
 type CardListProps = {
-    characters: any
+    characters?: ICharacter[]
     loading: boolean
 }
 
@@ -15,8 +16,8 @@ export function CardList({ characters, loading }: CardListProps) {
     return (
         <>
             <StyledCardList>
-                {characters?.map((character: any) =>
-                    <Card key={character.id} item={character.attributes} />
+                {characters?.map(({ id, attributes }: ICharacter) =>
+                    <Card key={id} attributes={attributes} />
                 )}
             </StyledCardList>
         </>

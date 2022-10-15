@@ -5,7 +5,8 @@ import Container from './components/styles/Container.styled';
 import { Header } from './components/Header';
 import { CardList } from './components/CardList';
 import { IPagination, Pagination } from './components/Pagination';
-import getCharactersFromServer from './services/HttpService'
+import getDataFromServer from './services/HttpService'
+import { ICharacter } from './interfaces/IHttpResponse.interface';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
     md: '1209px'
   }
 
-  const [characters, setCharacters] = useState<any>(null)
+  const [characters, setCharacters] = useState<ICharacter[]>()
   const [loading, setLoading] = useState<boolean>(true)
   const [currentPaginationLink, setCurrentPaginationLink] = useState<string>()
   const [paginationLinks, setPaginationLinks] = useState<IPagination>()
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     setLoading(true)
     setPaginationLinks(undefined)
-    getCharactersFromServer(currentPaginationLink).then(
+    getDataFromServer(currentPaginationLink).then(
       response => {
         setLoading(false)
         setServerError(false)
