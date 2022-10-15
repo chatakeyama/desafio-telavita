@@ -5,8 +5,8 @@ const Container = styled.div`
     margin: 0 auto;
     padding: 4rem;
 
-    @media(max-width: ${({ theme }) => theme.mobile}){
-        padding-top: 2rem;
+    @media(max-width: ${({ theme }) => theme.sm}){
+        padding: 2rem 0;
     }
 `
 
