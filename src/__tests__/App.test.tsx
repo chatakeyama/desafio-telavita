@@ -3,17 +3,22 @@ import { rest } from 'msw'
 import { server } from '../__mocks__/server'
 import App from '../App'
 import config from '../config.json'
+import { act } from "react-dom/test-utils";
 
 const apiEndpoint = config.apiUrl
 
-test('renders the title', () => {
-   render(<App />);
+test('renders the title', async () => {
+   await act(async () => {
+      render(<App />);
+   })
    const title = screen.getByRole('heading', { level: 1 });
    expect(title).toHaveTextContent('AnimaVita');
 });
 
 test('show message error when getting error from server', async () => {
-   render(<App />)
+   await act(async () => {
+      render(<App />);
+   })
    server.resetHandlers(
       rest.get(`${apiEndpoint}`, (req, res, ctx) =>
          res(ctx.status(404))
@@ -25,14 +30,18 @@ test('show message error when getting error from server', async () => {
 })
 
 test('show cards when accessing the application', async () => {
-   render(<App />)
+   await act(async () => {
+      render(<App />);
+   })
    await waitFor(() => screen.getAllByRole('article'))
    const cards = await screen.findAllByRole('article')
    expect(cards.length).toBeGreaterThanOrEqual(1)
-}) 
+})
 
 test('show pagination', async () => {
-   render(<App />)
+   await act(async () => {
+      render(<App />);
+   })
    const pagination = await screen.findByRole('navigation')
    expect(pagination)
 }) 
