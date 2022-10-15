@@ -4,8 +4,8 @@ import { IHttpResponse } from "../interfaces/IHttpResponse.interface"
 
 const apiEndpoint = config.apiUrl
 
-const getDataFromServer = async (apiUrl: string | undefined): Promise<IHttpResponse> => {
-    const promise = axios.get(apiUrl || `${apiEndpoint}?page[limit]=4&page[offset]=0`)
+const getDataFromServer = async (apiUrl: string | undefined, itemsPerPage: number): Promise<IHttpResponse> => {
+    const promise = axios.get(apiUrl || `${apiEndpoint}?page[limit]=${itemsPerPage}&page[offset]=0`)
     const { data } = await promise
     return data
 }

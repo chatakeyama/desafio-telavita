@@ -20,16 +20,20 @@ function App() {
   const [currentPaginationLink, setCurrentPaginationLink] = useState<string>()
   const [paginationLinks, setPaginationLinks] = useState<IPagination>()
   const [serverError, setServerError] = useState(false)
+  const [totalCharacters, setTotalCharacters] = useState(0)
+
+  const itemsPerPage = 4
 
   useEffect(() => {
     setLoading(true)
     setPaginationLinks(undefined)
-    getDataFromServer(currentPaginationLink).then(
+    getDataFromServer(currentPaginationLink, itemsPerPage).then(
       response => {
         setLoading(false)
         setServerError(false)
         setCharacters(response.data)
         setPaginationLinks(response.links)
+        setTotalCharacters(response.meta.count)
       }
     ).catch(error => {
       setLoading(false)
@@ -50,7 +54,7 @@ function App() {
           <main>
             {serverError && (<p role='alert'>Falha ao conectar no servidor. Tente novamente mais tarde.</p>)}
             <CardList characters={characters} loading={loading} />
-            <Pagination paginationLinks={paginationLinks} onPageChange={handlePageChange} />
+            <Pagination paginationLinks={paginationLinks} onPageChange={handlePageChange} totalItems={totalCharacters} itemsPerPage={itemsPerPage} />
           </main>
         </Container>
       </ThemeProvider>
