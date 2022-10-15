@@ -51,7 +51,7 @@ export function Pagination({ paginationLinks, onPageChange, totalItems, itemsPer
          <StyledPagination>
             {
                paginationLinks &&
-               <div className='buttons'>
+               <><div className='buttons'>
                   {Object.entries(paginationLinks).map(([linkType, link]) => {
                      const { reactElement, calculatePage } = buttonProperties[linkType as keyof typeof buttonProperties]
                      return (
@@ -60,8 +60,8 @@ export function Pagination({ paginationLinks, onPageChange, totalItems, itemsPer
                         </Button>)
                   })}
                </div>
+                  <p style={{ textAlign: 'center' }}>{currentPage} de {calculateLast()}</p></>
             }
-            <p style={{ textAlign: 'center' }}>{currentPage} de {calculateLast()}</p>
          </StyledPagination>
       </>
    )
