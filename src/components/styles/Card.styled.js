@@ -8,7 +8,19 @@ const StyledCard = styled.article`
     margin: 2rem;
     align-self: flex-start;
     min-height: 41rem;
-    
+
+    .skeleton {
+        animation: skeleton-loading 1s linear infinite alternate;
+        opacity: 1;
+    }
+    @keyframes skeleton-loading{
+        0% {
+            background-color: hsl(200, 20%, 70%)
+        }
+        100% {
+            background-color: hsl(200, 20%, 95%)
+        }
+    }
     @media(max-width: ${({ theme }) => theme.lg}){
         width: 24rem;
         margin: 1.9rem;
