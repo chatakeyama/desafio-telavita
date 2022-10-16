@@ -1,6 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../components/Button';
-import { BsChevronBarLeft } from "react-icons/bs";
 
 export default {
   title: 'AnimaVita/Button',
@@ -27,5 +26,5 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} >{ar
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <><BsChevronBarLeft /> Primeira</>
+  children: <><img src='../assets/left-chevron.png' alt='Seta para esquerda' width='16px' height='16px' /> Primeira</>
 };

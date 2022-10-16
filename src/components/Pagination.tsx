@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { BsChevronBarLeft, BsChevronLeft, BsChevronRight, BsChevronBarRight } from "react-icons/bs";
 import { Button } from "./Button"
 import StyledPagination from "./styles/Pagination.styled"
 
@@ -35,10 +34,26 @@ export function Pagination({ paginationLinks, onPageChange, totalItems, itemsPer
    const calculateLast = () => Math.ceil(totalItems / itemsPerPage)
 
    const buttonProperties = {
-      'first': { reactElement: <><BsChevronBarLeft /><span className='btn-text'>{' Primeira'}</span></>, calculatePage: () => 1 },
-      'prev': { reactElement: <><BsChevronLeft /><span className='btn-text'>{' Anterior'}</span></>, calculatePage: calculatePrev },
-      'next': { reactElement: <><span className='btn-text'>{'Próxima '}</span><BsChevronRight /></>, calculatePage: calculateNext },
-      'last': { reactElement: <><span className='btn-text'>{'Última '}</span><BsChevronBarRight /></>, calculatePage: calculateLast }
+      'first': {
+         reactElement: <><img src='/assets/double-chevron-left.png' alt='Dupla seta para esquerda' width='16px' height='16px' />
+            <span className='btn-text'>{' Primeira'}</span></>,
+         calculatePage: () => 1
+      },
+      'prev': {
+         reactElement: <><img src='/assets/left-chevron.png' alt='Seta para esquerda' width='16px' height='16px' />
+            <span className='btn-text'>{' Anterior'}</span></>,
+         calculatePage: calculatePrev
+      },
+      'next': {
+         reactElement: <><span className='btn-text'>{'Próxima '}</span>
+            <img src='/assets/right-chevron.png' alt='Seta para direita' width='16px' height='16px' /></>,
+         calculatePage: calculateNext
+      },
+      'last': {
+         reactElement: <><span className='btn-text'>{'Última '}</span>
+            <img src='/assets/double-chevron-right.png' alt='Dupla seta para direita' width='16px' height='16px' /></>,
+         calculatePage: calculateLast
+      }
    }
 
    const updateCurrentPage = (link: string, calculatePage: () => number) => {

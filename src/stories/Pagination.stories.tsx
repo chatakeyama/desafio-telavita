@@ -1,6 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button } from '../components/Button';
-import { BsChevronBarLeft } from "react-icons/bs";
 import { Pagination } from '../components/Pagination';
 
 export default {
