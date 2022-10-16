@@ -1,10 +1,8 @@
 # AnimaVita - Consultas online com animes e mangás
 
-Projeto de desenvolvimento frontend com consultas à API [Kitsu](https://kitsu.docs.apiary.io/).
+Projeto de desenvolvimento frontend para teste técnico do processo seletivo da empresa Telavita.  
 
-**Este projeto é parte do processo de seleção de desenvolvedor frontend da [Telavita](https://telavita.com.br).**
-
-## Sobre o projeto
+## Desafio
 
 Estamos implementando a página de listagem dos nossos super animes e mangás. Precisamos mostrar pelo menos 4 cards com as informações dos personagens e melhorar a interface e usabilidade do layout atual.
 
@@ -24,11 +22,28 @@ Estamos implementando a página de listagem dos nossos super animes e mangás. P
 * Storybook
 * Testes unitários
 
-### Instruções
+## Sobre o projeto que foi desenvolvido
 
-1. Faça um _fork_ ou download deste projeto.
-2. Trabalhe localmente no seu projeto, faça até o ponto que conseguir.
-3. Suba o seu projeto para o GitLab, GitHub ou qualquer similar.
-4. Nos envie o link para o seu projeto, **mesmo que não esteja finalizado!**
+Este projeto foi desenvolvido utilizando a versão v16.11.0 do NodeJs.
+>[ Node.js]( https://nodejs.org/dist/v16.11.0/)
 
-> Qualquer dúvida, entre em contato com [Rafael](mailto:rc@telavita.com.br)!
+### Execução da aplicação
+
+Entre na pasta raíz do projeto e execute o comando de instalação das dependências:
+```
+npm install
+```
+Execute o comando a seguir para iniciar a aplicação:
+```
+npm run start
+```
+### Storybook
+Para visualizar o storybook dos componentes, execute:
+```
+npm run storybook
+```
+### Testes automatizados
+Os testes automatizados foram feitos utilizando Jest e React Testing Library. Para executá-los, execute:
+```
+npm run test
+```
